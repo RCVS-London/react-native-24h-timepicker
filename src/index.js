@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, TouchableOpacity, Text, Picker } from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 import RBSheet from "react-native-raw-bottom-sheet";
 import styles from "./styles";
 
@@ -104,7 +105,7 @@ class TimePicker extends Component {
           selectedValue={selectedHour}
           style={styles.picker}
           itemStyle={this.props.itemStyle}
-          onValueChange={itemValue =>
+          onValueChange={(itemValue) =>
             this.onValueChange(itemValue, selectedMinute)
           }
         >
@@ -115,7 +116,7 @@ class TimePicker extends Component {
           selectedValue={selectedMinute}
           style={styles.picker}
           itemStyle={this.props.itemStyle}
-          onValueChange={itemValue =>
+          onValueChange={(itemValue) =>
             this.onValueChange(selectedHour, itemValue)
           }
         >
@@ -128,7 +129,7 @@ class TimePicker extends Component {
   render() {
     return (
       <RBSheet
-        ref={ref => {
+        ref={(ref) => {
           this.RBSheet = ref;
         }}
       >
@@ -152,7 +153,7 @@ TimePicker.propTypes = {
   textCancel: PropTypes.string,
   textConfirm: PropTypes.string,
   onCancel: PropTypes.func,
-  onConfirm: PropTypes.func
+  onConfirm: PropTypes.func,
 };
 
 TimePicker.defaultProps = {
@@ -166,7 +167,7 @@ TimePicker.defaultProps = {
   selectedMinute: "00",
   itemStyle: {},
   textCancel: "Cancel",
-  textConfirm: "Done"
+  textConfirm: "Done",
 };
 
 export default TimePicker;
